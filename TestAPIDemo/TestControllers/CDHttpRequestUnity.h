@@ -1,8 +1,8 @@
 //
-//  CDHttpDownloadFile.h
-//  Node.iPad
+//  CDHttpRequestUnity.h
+//  TestAPIDemo
 //
-//  Created by Chendi on 15/4/24.
+//  Created by Cindy on 15/6/25.
 //  Copyright (c) 2015年 Cindy. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ typedef  enum CDEnumRequestWays{
 }CDEnumRequestWays;
 
 
-@interface CDHttpDownloadFile : NSObject <NSURLConnectionDataDelegate>
+@interface CDHttpRequestUnity : NSObject <NSURLConnectionDataDelegate>
 
 @property (nonatomic, assign) long long begin;  //  开始的位置
 
@@ -26,8 +26,9 @@ typedef  enum CDEnumRequestWays{
 
 @property (nonatomic, readonly, getter = connection) NSURLConnection *connection;  //  连接对象
 @property (nonatomic, copy) void (^progressHandler)(double progress);
-@property (nonatomic, copy) void (^downloadResultHandler)(BOOL result,NSData *JsonData);
+@property (nonatomic, copy) void (^requestResultHandler)(BOOL result,NSData *JsonData);
 
 - (void)startRequest;
+
 
 @end

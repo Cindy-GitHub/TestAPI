@@ -7,14 +7,12 @@
 //
 
 #import "TestViewController.h"
-#import "CDHttpDownloadFile.h"
+#import "CDHttpRequestUnity.h"
 
 const NSString *CDRequestURLContentString = @"";
 
 @interface TestViewController ()
-
-@property (nonatomic,strong) CDHttpDownloadFile *requestManager;
-
+@property (nonatomic,strong) CDHttpRequestUnity *requestManager;
 @end
 
 @implementation TestViewController
@@ -24,7 +22,7 @@ const NSString *CDRequestURLContentString = @"";
     // Do any additional setup after loading the view from its nib.
     
     //  init  request manager
-    _requestManager = [[CDHttpDownloadFile alloc] init];
+    _requestManager = [[CDHttpRequestUnity alloc] init];
     _requestManager.url = [NSString stringWithFormat:@"%@",CDRequestURLContentString];
     _requestManager.requestWay = CDRequestWayJSONData;
 }
@@ -33,9 +31,26 @@ const NSString *CDRequestURLContentString = @"";
 {
     [super viewWillAppear:animated];
     
+    _requestManager.progressHandler = ^(double progress) {
+        NSLog(@"request  progress : %f",progress);
+    };
+    
+    _requestManager.requestResultHandler = ^(BOOL result,NSData *JsonData) {
+        NSLog(@"request  result  :  %zi",result);
+        NSLog(@"JsonData : %@",JsonData);
+    };
+    
+
+}
+
+- (IBAction)buttonPressEvent:(UIButton *)sender
+{
     //  开始请求
     [_requestManager startRequest];
+    
+    NSLog(@"send  request !");
 }
+
 
 #pragma mark -
 - (void)didReceiveMemoryWarning {

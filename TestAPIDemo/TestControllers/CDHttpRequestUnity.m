@@ -1,14 +1,14 @@
 //
-//  CDHttpDownloadFile.m
-//  Node.iPad
+//  CDHttpRequestUnity.m
+//  TestAPIDemo
 //
-//  Created by Chendi on 15/4/24.
+//  Created by Cindy on 15/6/25.
 //  Copyright (c) 2015年 Cindy. All rights reserved.
 //
 
-#import "CDHttpDownloadFile.h"
+#import "CDHttpRequestUnity.h"
 
-@interface CDHttpDownloadFile()
+@interface CDHttpRequestUnity()
 
 @property (nonatomic , strong) NSFileHandle *writeHandle;  //  写数据的文件句柄
 @property (nonatomic, assign) long long totleLenght;  //  文件总长度
@@ -17,12 +17,13 @@
 
 @end
 
-@implementation CDHttpDownloadFile
+
+@implementation CDHttpRequestUnity
 - (NSFileHandle *)writeHandle
- {
+{
     if (_writeHandle == nil) {
-         _writeHandle = [NSFileHandle fileHandleForWritingAtPath:self.destPath];
-   }
+        _writeHandle = [NSFileHandle fileHandleForWritingAtPath:self.destPath];
+    }
     return _writeHandle;
 }
 
@@ -34,8 +35,8 @@
         NSLog(@"fileExistsAtPath : %zi",[[NSFileManager defaultManager] fileExistsAtPath:self.destPath]);
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    NSString *value = [NSString stringWithFormat:@"bytes=%lld-%lld", self.begin + self.currentLength, self.end];
-//    [request setValue:value forHTTPHeaderField:@"Range"];
+    //    NSString *value = [NSString stringWithFormat:@"bytes=%lld-%lld", self.begin + self.currentLength, self.end];
+    //    [request setValue:value forHTTPHeaderField:@"Range"];
     _connection = [NSURLConnection connectionWithRequest:request delegate:self];
     _downloading = YES;
 }
@@ -89,7 +90,7 @@
             NSLog(@"RequestDataWays  the  value  is  exception !");
             break;
     }
-
+    
     
     // 打印数据请求完成的进度
     double progress = (double)self.currentLength / (self.totleLenght - self.begin);
@@ -101,8 +102,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSLog(@"connectionDidFinishLoading !");
-    if (self.downloadResultHandler) {
-        self.downloadResultHandler(YES,_receiveData);
+    if (self.requestResultHandler) {
+        self.requestResultHandler(YES,_receiveData);
     }
     
     
@@ -131,8 +132,8 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError : %@",error);
-    if (self.downloadResultHandler) {
-        self.downloadResultHandler(NO,_receiveData);
+    if (self.requestResultHandler) {
+        self.requestResultHandler(NO,_receiveData);
     }
     
     _receiveData = nil;
@@ -145,5 +146,7 @@
     self.writeHandle = nil;
     _downloading = NO;
 }
+
+
 
 @end

@@ -14,7 +14,8 @@
 		3777F5721B3AC64400131EA1 /* TestAPIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3777F5711B3AC64400131EA1 /* TestAPIDemoTests.m */; };
 		3777F57F1B3AC6FC00131EA1 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3777F57D1B3AC6FC00131EA1 /* TestViewController.m */; };
 		3777F5801B3AC6FC00131EA1 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3777F57E1B3AC6FC00131EA1 /* TestViewController.xib */; };
-		3777F5831B3AC8D500131EA1 /* CDHttpDownloadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3777F5821B3AC8D500131EA1 /* CDHttpDownloadFile.m */; };
+		37894FC41B3BACBD0009A3C8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 37894FC31B3BACBD0009A3C8 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		37894FC71B3BAE810009A3C8 /* CDHttpRequestUnity.m in Sources */ = {isa = PBXBuildFile; fileRef = 37894FC61B3BAE810009A3C8 /* CDHttpRequestUnity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +42,10 @@
 		3777F57C1B3AC6FC00131EA1 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		3777F57D1B3AC6FC00131EA1 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		3777F57E1B3AC6FC00131EA1 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		3777F5811B3AC8D500131EA1 /* CDHttpDownloadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDHttpDownloadFile.h; sourceTree = "<group>"; };
-		3777F5821B3AC8D500131EA1 /* CDHttpDownloadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDHttpDownloadFile.m; sourceTree = "<group>"; };
+		37894FC21B3BACBD0009A3C8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		37894FC31B3BACBD0009A3C8 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		37894FC51B3BAE810009A3C8 /* CDHttpRequestUnity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDHttpRequestUnity.h; sourceTree = "<group>"; };
+		37894FC61B3BAE810009A3C8 /* CDHttpRequestUnity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDHttpRequestUnity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +126,23 @@
 		3777F57B1B3AC6DE00131EA1 /* TestControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3777F5811B3AC8D500131EA1 /* CDHttpDownloadFile.h */,
-				3777F5821B3AC8D500131EA1 /* CDHttpDownloadFile.m */,
+				37894FC11B3BACAD0009A3C8 /* HelpFiles */,
 				3777F57C1B3AC6FC00131EA1 /* TestViewController.h */,
 				3777F57D1B3AC6FC00131EA1 /* TestViewController.m */,
 				3777F57E1B3AC6FC00131EA1 /* TestViewController.xib */,
+				37894FC51B3BAE810009A3C8 /* CDHttpRequestUnity.h */,
+				37894FC61B3BAE810009A3C8 /* CDHttpRequestUnity.m */,
 			);
 			path = TestControllers;
+			sourceTree = "<group>";
+		};
+		37894FC11B3BACAD0009A3C8 /* HelpFiles */ = {
+			isa = PBXGroup;
+			children = (
+				37894FC21B3BACBD0009A3C8 /* JSONKit.h */,
+				37894FC31B3BACBD0009A3C8 /* JSONKit.m */,
+			);
+			path = HelpFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +247,9 @@
 			files = (
 				3777F57F1B3AC6FC00131EA1 /* TestViewController.m in Sources */,
 				3777F55B1B3AC64400131EA1 /* AppDelegate.m in Sources */,
-				3777F5831B3AC8D500131EA1 /* CDHttpDownloadFile.m in Sources */,
 				3777F5581B3AC64400131EA1 /* main.m in Sources */,
+				37894FC71B3BAE810009A3C8 /* CDHttpRequestUnity.m in Sources */,
+				37894FC41B3BACBD0009A3C8 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +436,7 @@
 				3777F5771B3AC64400131EA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3777F5781B3AC64400131EA1 /* Build configuration list for PBXNativeTarget "TestAPIDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +445,7 @@
 				3777F57A1B3AC64400131EA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
