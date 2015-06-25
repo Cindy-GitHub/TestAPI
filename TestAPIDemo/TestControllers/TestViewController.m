@@ -7,8 +7,13 @@
 //
 
 #import "TestViewController.h"
+#import "CDHttpDownloadFile.h"
+
+const NSString *CDRequestURLContentString = @"";
 
 @interface TestViewController ()
+
+@property (nonatomic,strong) CDHttpDownloadFile *requestManager;
 
 @end
 
@@ -17,21 +22,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //  init  request manager
+    _requestManager = [[CDHttpDownloadFile alloc] init];
+    _requestManager.url = [NSString stringWithFormat:@"%@",CDRequestURLContentString];
+    _requestManager.requestWay = CDRequestWayJSONData;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //  开始请求
+    [_requestManager startRequest];
+}
+
+#pragma mark -
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
